@@ -387,9 +387,13 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
       # replace children with nested hashes recursively
       for i in 0 .. kids.length
         cid = kids[i]
-        if @parents[cid] != nil && @parents[cid].length > 0
-          grandkids = find_children(cid)
-          kids[i] = {cid => grandkids}
+        if cid != nil && cid.class == String
+          obj = {:id => cid, :label => @labels[cid]}
+          if @parents[cid] != nil && @parents[cid].length > 0
+            grandkids = find_children(cid)
+            obj[:children] = find_children(cid)
+          end
+          kids[i] = obj
         end
       end
     end
@@ -397,7 +401,6 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
   end
 
   def to_solr (solr_doc = {})
-
     # field types
     storedInt = Solrizer::Descriptor.new(:integer, :indexed, :stored)
     storedIntMulti = Solrizer::Descriptor.new(:integer, :indexed, :stored, :multivalued)
@@ -549,6 +552,7 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
     end
 
     # component metadata
+    @labels = Hash.new
     @parents = Hash.new
     @children = Array.new
     if component != nil && component.count > 0
@@ -573,6 +577,14 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
         n += 1
       	Solrizer.insert_field(solr_doc, "component_#{cid}_#{n}_title", title.value)
       	Solrizer.insert_field(solr_doc, "component_#{cid}_#{n}_subtitle", title.subtitle)
+        if @labels[cid] == nil
+          if title.subtitle != nil && title.subtitle.length > 0
+            val = "#{title.value.first}: #{title.subtitle.first}"
+          else
+            val = title.value.first
+          end
+          @labels[cid] = val
+        end
       end
       
       Solrizer.insert_field(solr_doc, "component_#{cid}_resource_type", component.resource_type.first)
@@ -583,6 +595,9 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
       	Solrizer.insert_field(solr_doc, "component_#{cid}_#{n}_date", date.value)
       	Solrizer.insert_field(solr_doc, "component_#{cid}_#{n}_beginDate", date.beginDate)
       	Solrizer.insert_field(solr_doc, "component_#{cid}_#{n}_endDate", date.endDate)
+        if @labels[cid] == nil
+          @labels[cid] = date.value
+        end
       end     
       if component.note.first != nil
         Solrizer.insert_field(solr_doc, "component_#{cid}_note",  component.note.first.value)
@@ -605,12 +620,16 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
     end
     
     # build component hierarchy map
-    @cmap = Hash.new
+    @cmap = Array.new
     @parents.keys.sort{|x,y| x.to_i <=> y.to_i}.each { |p|
       # only process top-level objects
       if not @children.include?(p)
         # p is a top-level component, find direct children
-        @cmap[p] = find_children(p)
+        obj = {:id => p, :label => @labels[p]}
+        if @parents[p].length > 0
+          obj[:children] = find_children(p)
+        end
+        @cmap << obj
       end
     }
     Solrizer.insert_field(solr_doc, "component_map", @cmap.to_json)
