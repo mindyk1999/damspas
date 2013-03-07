@@ -544,7 +544,6 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
         if cid != nil && cid.class == String
           obj = {:id => cid, :label => @labels[cid]}
           if @parents[cid] != nil && @parents[cid].length > 0
-            grandkids = find_children(cid)
             obj[:children] = find_children(cid)
           end
           kids[i] = obj
