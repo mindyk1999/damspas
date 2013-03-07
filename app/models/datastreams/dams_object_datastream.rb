@@ -541,7 +541,7 @@ class DamsObjectDatastream < ActiveFedora::RdfxmlRDFDatastream
       # replace children with nested hashes recursively
       for i in 0 .. kids.length
         cid = kids[i]
-        if cid != nil && cid.class == String
+        if cid != nil
           obj = {:id => cid, :label => @labels[cid]}
           if @parents[cid] != nil && @parents[cid].length > 0
             obj[:children] = find_children(cid)
