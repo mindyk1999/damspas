@@ -21,6 +21,8 @@ class Ability
   		can [:read], MadsComplexSubject
   		can [:read], MadsTopic
   		can [:read], MadsTemporal
+  		can [:read], XVocabulary
+  		can [:read], XVocabularyEntry
   	else  #login user
     	can [:read, :create, :update, :view], DamsObject
     	can [:read, :create, :update, :view], DamsUnit
@@ -41,6 +43,8 @@ class Ability
   		can [:read, :create, :update, :view], MadsComplexSubject
   		can [:read, :create, :update, :view], MadsTopic
   		can [:read, :create, :update, :view], MadsTemporal
+    	can [:read, :create, :update], XVocabulary
+  		can [:read, :create, :update], XVocabularyEntry
     end
   end
 end

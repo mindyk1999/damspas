@@ -79,6 +79,11 @@ Hydra::Application.routes.draw do
   resources :mads_temporals do
     get 'view', :on => :member
   end    
+
+  # relationships test
+  resources :x_vocabularies
+  resources :x_vocabulary_entries
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

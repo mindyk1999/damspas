@@ -1,0 +1,15 @@
+<h1>DAMS Vocabulary Entries</h1>
+
+<div class="span6">
+  <ul>
+  <% @x_vocabulary_entries.each do |entry| %>
+    <li><%= link_to entry.value.first, entry %></li>
+  <% end %>
+  </ul>
+</div>
+
+<div>
+  <% if can? :create, DamsVocabularyEntry%>
+    <%= link_to "Create Vocabulary Entry", new_x_vocabulary_entry_path, :class => 'btn btn-primary'%>
+  <% end %>
+</div>

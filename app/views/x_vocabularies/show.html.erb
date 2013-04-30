@@ -1,0 +1,7 @@
+<h1><%= @x_vocabulary.description.first %></h1>
+<div>
+  <% if can? :update, @x_vocabulary then %>
+    <%= link_to "Edit", edit_x_vocabulary_path(@x_vocabulary), class: "btn btn-primary"%>
+  <% end %>
+  <%= link_to "View All", x_vocabularies_path, class: "btn btn-primary" %>
+</div>

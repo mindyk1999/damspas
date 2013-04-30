@@ -1,0 +1,10 @@
+<h1><%= @x_vocabulary_entry.value.first %></h1>
+<div>code: <%= @x_vocabulary_entry.code.first %></div>
+<div>valueURI: <%= @x_vocabulary_entry.valueURI.first %></div>
+<div>vocabulary: <%= link_to @x_vocabulary_entry.x_vocabulary.description.first, @x_vocabulary_entry.x_vocabulary %></div>
+<div>
+  <% if can? :update, @x_vocabulary_entry then %>
+    <%= link_to "Edit", edit_x_vocabulary_entry_path(@x_vocabulary_entry), class: "btn btn-primary"%>
+  <% end %>
+  <%= link_to "View All", x_vocabulary_entries_path, class: "btn btn-primary" %>
+</div>
