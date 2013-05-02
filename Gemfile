@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'blacklight', '4.2.0'
-gem 'solrizer-fedora', '3.0.0.pre1' # PRE-LOCK
+gem 'solrizer-fedora'#, '3.0.0.pre1' # PRE-LOCK
 gem 'solrizer', '3.0.0'
-gem 'hydra-head', "6.0.0"
-gem 'active-fedora', "6.0.0"
+gem 'hydra-head', "6.1.0"
+gem 'active-fedora', "6.1.0"
 
 gem 'sqlite3', '1.3.7'
 
