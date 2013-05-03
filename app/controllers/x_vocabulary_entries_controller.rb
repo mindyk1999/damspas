@@ -2,29 +2,26 @@ class XVocabularyEntriesController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => :index
 
-  def load_vocab
-    @x_vocabulary_entry.outbound_relationships.each do |rel|
-      if rel.predicate == 'info:fedora/fedora-system:def/relations-external#dams:vocabulary'
-        vocid = rel.object.to_s.gsub('info:fedora/','').gsub('/','')
-        @x_vocabulary_entry.x_vocabulary = XVocabulary.find( vocid )
-      end
-    end
-  end
   def show
-    load_vocab
+    vid = @x_vocabulary_entry.vocabulary.first.to_s.gsub(/.*\//,"")
+    @x_vocabulary_entry.x_vocabulary = XVocabulary.find( vid )
   end
 
   def new
   end
 
   def edit
-    load_vocab
+    vid = @x_vocabulary_entry.vocabulary.first.to_s.gsub(/.*\//,"")
+    @x_vocabulary_entry.x_vocabulary_id = vid
   end
   def save
   end
 
   def create
-    @x_vocabulary_entry.attributes = params[:x_vocabulary_entry]
+    obj = params[:x_vocabulary_entry]
+    vid = obj.delete('vocabulary')
+    @x_vocabulary_entry.attributes = obj
+    @x_vocabulary_entry.vocabulary = "#{Rails.configuration.id_namespace}#{vid}"
     if @x_vocabulary_entry.save
         redirect_to @x_vocabulary_entry, notice: "Vocabulary Entry has been saved"
     else
@@ -34,7 +31,10 @@ class XVocabularyEntriesController < ApplicationController
   end
 
   def update
-    @x_vocabulary_entry.attributes = params[:x_vocabulary_entry]
+    obj = params[:x_vocabulary_entry]
+    vid = obj.delete('vocabulary')
+    @x_vocabulary_entry.attributes = obj
+    @x_vocabulary_entry.vocabulary = "#{Rails.configuration.id_namespace}#{vid}"
     if @x_vocabulary_entry.save
         redirect_to @x_vocabulary_entry, notice: "Successfully updated vocabulary entry"
     else

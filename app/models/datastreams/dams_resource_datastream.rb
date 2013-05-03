@@ -539,14 +539,14 @@ class DamsResourceDatastream < ActiveFedora::RdfxmlRDFDatastream
     # event
     insertEventFields solr_doc, "", event
 
-    # hack to strip "+00:00" from end of dates, because that makes solr barf
-    ['system_create_dtsi','system_modified_dtsi'].each { |f|
-      if solr_doc[f].kind_of?(Array)
-        solr_doc[f][0] = solr_doc[f][0].gsub('+00:00','Z')
-      elsif solr_doc[f] != nil
-        solr_doc[f] = solr_doc[f].gsub('+00:00','Z')
-      end
-    }
+#    # hack to strip "+00:00" from end of dates, because that makes solr barf
+#    ['system_create_dtsi','system_modified_dtsi'].each { |f|
+#      if solr_doc[f].kind_of?(Array)
+#        solr_doc[f][0] = solr_doc[f][0].gsub('+00:00','Z')
+#      elsif solr_doc[f] != nil
+#        solr_doc[f] = solr_doc[f].gsub('+00:00','Z')
+#      end
+#    }
     return solr_doc
   end
 end

@@ -5,7 +5,7 @@ class XVocabularyEntryDatastream < ActiveFedora::RdfxmlRDFDatastream
     map.authority(:in => DAMS)
     map.authURI(:in => DAMS, :to => 'authorityURI' )
     map.valURI(:in => DAMS, :to => 'valueURI' )
-    #map.vocabulary(:in => DAMS)
+    map.vocabulary(:in => DAMS)
   end
 
   rdf_subject { |ds| RDF::URI.new(Rails.configuration.id_namespace + ds.pid)}

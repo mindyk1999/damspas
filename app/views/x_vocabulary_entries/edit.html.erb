@@ -9,8 +9,8 @@
   <%= label_tag 'x_vocabulary_entry[valueURI]', "ValueURI" %>
   <%= text_field_tag 'x_vocabulary_entry[valueURI][]', @x_vocabulary_entry.valueURI[0] %>
 
-  <%= label_tag 'x_vocabulary_entry[x_vocabulary]', "Vocabulary" %>
-  <%= select_tag 'x_vocabulary_entry[x_vocabulary_id]', options_for_select(XVocabulary.all.collect{ |v| [v.description.first, v.pid] }, :selected => @x_vocabulary_entry.x_vocabulary.pid ) %>
+  <%= label_tag 'x_vocabulary_entry[vocabulary]', "Vocabulary" %>
+  <%= select_tag 'x_vocabulary_entry[vocabulary]', options_for_select(XVocabulary.all.collect{ |v| [v.description.first, v.pid] }, :selected => @x_vocabulary_entry.x_vocabulary_id ) %>
 
   <br>
   <%=f.submit "Save", class: "btn btn-primary" %>

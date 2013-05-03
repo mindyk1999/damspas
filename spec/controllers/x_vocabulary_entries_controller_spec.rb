@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe XVocabularyEntriesController do
-  describe "A login user" do
+  describe "logged in user" do
 	  before do
 	  	sign_in User.create!
 	  end
 	  describe "Show" do
 	    before do
-	      @obj = XVocabularyEntry.create(value: "Vocabulary Entry value", x_vocabulary: XVocabulary.new(pid:"bb43434343",description:"Sample Vocab") )
+	      @obj = XVocabularyEntry.create(value: "Vocabulary Entry value", vocabulary: "#{Rails.configuration.id_namespace}bb43434343")
 	    end
 	    it "should be successful" do 
 	      get :show, id: @obj.id
@@ -15,6 +15,7 @@ describe XVocabularyEntriesController do
 	      @obj2 = assigns[:x_vocabulary_entry]
           @obj2.value.should == ["Vocabulary Entry value"]
           @obj2.should == @obj
+          @obj2.vocabulary.first.to_s.should == "#{Rails.configuration.id_namespace}bb43434343"
 	    end
 	  end
 	  
@@ -49,13 +50,19 @@ describe XVocabularyEntriesController do
 	  
 	  describe "Update" do
 	    before do
- 	      @obj = XVocabularyEntry.create(value: "Vocabulary Entry Test Title", x_vocabulary: XVocabulary.new(pid:"bb43434343",description:"Sample Vocab"))
+ 	      @vocab1 = XVocabulary.create(description: "Test Vocab 1")
+ 	      @vocab2 = XVocabulary.create(description: "Test Vocab 2")
+ 	      @obj = XVocabularyEntry.create(value: "Test Title 1", code: "1", vocabulary:"#{Rails.configuration.id_namespace}#{@vocab1.pid}")
  	  end
 	  it "should be successful" do
-	      put :update, :id => @obj.id, :x_vocabulary_entry => {value: ["Test Title2"], x_vocabulary: XVocabulary.new(pid:"http://library.ucsd.edu/ark:/20775/bb43434343", description: "Test Vocab")}
+	      put :update, :id => @obj.id, :x_vocabulary_entry => {code: ["2"], value: ["Test Title 2"], vocabulary: @vocab2.pid }
 	      response.should redirect_to assigns[:x_vocabulary_entry]
-	      @obj.reload.value.should == ["Test Title2"]
 	      flash[:notice].should == "Successfully updated vocabulary entry"
+
+          @obj2 = assigns[:x_vocabulary_entry]
+          @obj2.value.should == ["Test Title 2"]
+          @obj2.code.should == ["2"]
+          @obj2.vocabulary.first.to_s.should == "#{Rails.configuration.id_namespace}#{@vocab2.pid}"
       end
     end
   end
