@@ -1,0 +1,76 @@
+<mads:Topic>
+  <mads:authoritativeLabel>Cosmology</mads:authoritativeLabel>
+  <mads:elementList rdf:parseType="Collection">
+    <mads:TopicElement>
+      <mads:elementValue>Cosmology</mads:elementValue>
+    </mads:TopicElement>
+  </mads:elementList>
+</mads:Topic>
+
+<mads:Temporal>
+  <mads:authoritativeLabel>16th Century</mads:authoritativeLabel>
+  <mads:elementList rdf:parseType="Collection">
+    <mads:TemporalElement>
+      <mads:elementValue>16th Century</mads:elementValue>
+    </mads:TemporalElement>
+  </mads:elementList>
+</mads:Temporal>
+
+<mads:PersonalName>
+  <mads:authoritativeLabel>Jefferson, Thomas, 1743-1826</mads:authoritativeLabel>
+  <mads:elementList rdf:parseType="Collection">
+    <mads:FullNameElement>
+      <mads:elementValue>Jefferson, Thomas,</mads:elementValue>
+    </mads:FullNameElement>
+    <mads:DateNameElement>
+      <mads:elementValue>1743-1826</mads:elementValue>
+    </mads:DateNameElement>
+  </mads:elementList>
+</mads:PersonalName>
+
+<mads:CorporateName>
+  <mads:authoritativeLabel>University of California, San Diego. University Library</mads:authoritativeLabel>
+  <mads:elementList rdf:parseType="Collection">
+    <mads:NameElement>
+      <mads:elementValue>University of California, San Diego.</mads:elementValue>
+    </mads:NameElement>
+    <mads:NameElement>
+      <mads:elementValue>University Library</mads:elementValue>
+    </mads:NameElement>
+  </mads:elementList>
+</mads:CorporateName>
+
+<mads:ComplexSubject>
+  <mads:authoritativeLabel>Jefferson, Thomas, 1743-1826--Presidency--1801-1809</mads:authortiativeLabel>
+  <mads:componentList rdf:parseType="Collection">
+    <mads:PersonalName>
+      <mads:authoritativeLabel>Jefferson, Thomas, 1743-1826</mads:authoritativeLabel>
+      <mads:elementList rdf:parseType="Collection">
+        <mads:FullNameElement>
+          <mads:elementValue>Jefferson, Thomas,</mads:elementValue>
+        </mads:FullNameElement>
+        <mads:DateNameElement>
+          <mads:elementValue>1743-1826</mads:elementValue>
+        </mads:DateNameElement>
+      </mads:elementList>
+    </mads:PersonalName>
+
+    <mads:Topic>
+      <mads:authoritativeLabel>Presidency</mads:authoritativeLabel>
+      <mads:elementList rdf:parseType="Collection">
+        <mads:TopicElement>
+          <mads:elementValue>Presidency</mads:elementValue>
+        </mads:TopicElement>
+      </mads:elementList>
+    </mads:Topic>
+
+    <mads:Temporal>
+      <mads:authoritativeLabel>1801-1809</mads:authoritativeLabel>
+      <mads:elementList rdf:parseType="Collection">
+        <mads:TemporalElement>
+          <mads:elementValue>1801-1809</mads:elementValue>
+        </mads:TemporalElement>
+      </mads:elementList>
+    </mads:Temporal>
+  </mads:componentList>
+</mads:ComplexSubject>
