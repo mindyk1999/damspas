@@ -38,7 +38,9 @@ module DamsObjectsHelper
           title = JSON.parse(datum)
           if title['value'] != ''
              title_value=title['value']
-             
+             if title['subtitle'] != ''
+              title_value=title_value+ title['subtitle']
+             end
             data_arr.push(title_value)
           end
         end
@@ -46,25 +48,31 @@ module DamsObjectsHelper
         data_arr
     end
 
+
+    #Need refactor code when MADS implementation is done.
     def getCreator
-      data_arr=[]
+      # data_arr=[]
       # get creator list from names:personal
        fieldValue=field_mapping('name_tesim')
-       if fieldValue != nil && fieldValue != ''
-        data_arr.push(fieldValue)
-       end
+      #if fieldValue != nil && fieldValue != ''
+      #  data_arr.push(fieldValue)
+      # end
        
-       # get creator list from corporateName_tesim
-       fieldValue=field_mapping('corporateName_tesim')
-       if fieldValue != nil && fieldValue != ''
-        data_arr.push(fieldValue)
-       end
+      # get creator list from corporateName_tesim
+      # fieldValue=field_mapping('corporateName_tesim')
+      # if fieldValue != nil && fieldValue != ''
+      #  data_arr.push(fieldValue)
+      # end
     end
 
     def getFormat
        data_arr=[]
        fieldData=getFieldData('note_json_tesim')
        format_value=''
+       concat__note_value=''
+       concat__form_value=''
+       concat__extent_value=''
+
        
        if fieldData != nil
          fieldData.each do |datum|
@@ -78,11 +86,11 @@ module DamsObjectsHelper
           end
          end
 
-         if concat__note_value!=nil && concat__note_value!=''
+         if concat__note_value!=''
            format_value=concat__note_value
-         elsif concat__form_value !=nil && concat__form_value!=''
+         elsif concat__form_value!=''
             format_value=concat__form_value
-            if concat__extent_value !=nil && concat__extent_value!=''
+            if concat__extent_value!=''
              format_value=format_value+";"+concat__extent_value
             end
          end
@@ -139,7 +147,7 @@ module DamsObjectsHelper
         data_arr
     end
 
-    # more Mapping required
+    #Need refactor code when MADS implementation is done.
     def getSubject
 
        fieldValue=field_mapping('subject_tesim')
@@ -204,14 +212,14 @@ module DamsObjectsHelper
         query_string << "url_ver=Z39.88-2004&ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&rfr_id=info%3Asid%2Fblacklight.rubyforge.org%3Agenerator"
         field_map = {
           'title' => getTitle,
-        #  'creator'=>getCreator,
+          'creator'=>getCreator,
           'subject'=>getSubject,
-        #  'description'=>getDescription,
+          'description'=>getDescription,
           'date'=>getDate,
-        #  'format'=>getFormat,
+          'format'=>getFormat,
           'language'=> getLanguage,
           'identifier'=>getIdentifier,
-         # 'coverage'=>getCoverage,
+          'coverage'=>getCoverage,
            'rights'=> getCopyright
           
         }
