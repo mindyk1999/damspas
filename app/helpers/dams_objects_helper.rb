@@ -114,7 +114,7 @@ module DamsObjectsHelper
         end 
         data_arr
     end
-
+    
     def getRelation
        data_arr=[]
        fieldData=getFieldData('collection_json_tesim')
@@ -122,7 +122,7 @@ module DamsObjectsHelper
        # implementation for relation mapping
     end
 
-    # More mapping required 
+    #Need refactor code when MADS implementation is done.
     def getCoverage
        data_arr=[]
        fieldData=getFieldData('cartographics_json_tesim')
@@ -193,6 +193,21 @@ module DamsObjectsHelper
      data_arr
     end
 
+   #dc:publisher
+   def getPublisher
+       data_arr=[]
+       fieldData=getFieldData('note_json_tesim')
+
+       if fieldData != nil
+         fieldData.each do |datum|
+          note = JSON.parse(datum)
+          if note['type'] == 'publication'
+            data_arr.push(note['value'])
+          end
+          end
+        end 
+        data_arr
+    end
     
     def getCopyright
        data_arr=[]
@@ -219,7 +234,8 @@ module DamsObjectsHelper
           'format'=>getFormat,
           'language'=> getLanguage,
           'identifier'=>getIdentifier,
-          'coverage'=>getCoverage,
+          #'coverage'=>getCoverage,
+           'publisher'=>getPublisher,
            'rights'=> getCopyright
           
         }
