@@ -4,7 +4,7 @@ describe MadsComplexSubjectDatastream do
   describe "an instance with content" do
     subject do
       subject = MadsComplexSubjectDatastream.new(stub('inner object', :pid=>'bbXXXXXXX5', :new? =>true), 'descMetadata')
-      subject.content = File.new('spec/fixtures/madsComplexSubject.xml').read
+      subject.content = File.new('spec/fixtures/madsComplexSubject.rdf.xml').read
       subject
     end
     it "should have a subject" do

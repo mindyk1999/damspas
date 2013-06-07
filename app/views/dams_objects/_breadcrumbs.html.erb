@@ -12,7 +12,7 @@
 %>
 
 <ul class="breadcrumb">
-	<li><a href="/">Digital Collections</a> <span class="divider">&raquo;</span></li>
-	<li><%= link_to unit['name'], "/#{unit['code']}" %> <span class="divider">&raquo;</span></li>
+	<li><%= link_to "Digital Collections", root_path %> <span class="divider">&raquo;</span></li>
+	<li><%= link_to unit['name'], dams_unit_path(unit['code']) %> <span class="divider">&raquo;</span></li>
 	<li class="active"><%= title['value'] %></li>
 </ul>
