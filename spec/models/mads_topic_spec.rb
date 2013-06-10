@@ -11,9 +11,14 @@ describe MadsTopic do
     subject.sameAs =  "http://id.loc.gov/authorities/subjects/sh85012026"
     subject.valueURI = "http://id.loc.gov/n9999999999"
     subject.elementList.build
-    #subject.elementList.first.topicElement.build
-     subject.elementList.first.topicElement = "History"
-    puts subject.elementList.first.topicElement
+    tmpTopicElement = MadsDatastream::TopicElement.new(RDF::Graph.new)
+    tmpTopicElement.elementValue = "History"
+ 
+    subject.elementList.first.topicElement = "History"
+   
+    subject.elementList.first.topicElement = tmpTopicElement
+    #puts  subject.elementList.first.topicElement
+    #subject.elementList.first.topicElement[1].elementValue = "History"
     xml =<<END
 <rdf:RDF
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"

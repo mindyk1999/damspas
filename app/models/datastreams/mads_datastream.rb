@@ -35,15 +35,22 @@ class MadsDatastream < ActiveFedora::RdfxmlRDFDatastream
 	  end
 	  #rdf_type MADS.elementList
 	  map_predicates do |map|
-	    map.topicElement(in: MADS, to: "TopicElement")
+	    map.topicElement(in: MADS, to: "TopicElement", :class_name => "TopicElement")
 	    map.temporalElement(in: MADS, to: "TemporalElement")
 	    map.fullNameElement(in: MADS, to: "FullNameElement")
 	    map.dateNameElement(in: MADS, to: "DateNameElement")
 	    map.nameElement(in: MADS, to: "NameElement")
-	    #map.elementValue(in: MADS)
+	   # map.elementValue(in: MADS)
 	  end
 	end
 
+    class TopicElement
+      include ActiveFedora::RdfObject
+      rdf_type MADS.TopicElement
+      map_predicates do |map|   
+        map.elementValue(:in=> MADS)
+      end
+    end  
 
                      
   class List 
