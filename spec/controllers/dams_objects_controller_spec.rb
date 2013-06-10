@@ -45,20 +45,7 @@ describe DamsObjectsController do
 	  describe "Create" do
 	    it "should be successful" do
 
-#uri = URI('http://fast.oclc.org/fastSuggest/select')
-#res = Net::HTTP.post_form(uri, 'q' => 'suggestall :cats', 'fl' => 'suggestall', 'wt' => 'json')
-#puts "start"
-#puts res.body
-#json = JSON.parse(res.body)
-#puts json
-#jdoc = json.fetch("response").fetch("docs")
-#puts jdoc
-
-#jdoc.each do |value|
-#	puts "heyy #{value['suggestall']}"
-#end
-
-	      expect { 
+	    expect { 
 	       post :create, :dams_object => {titleValue: ["Test Title"], "subjectType"=>["Topic","BuiltWorkPlace","Temporal"], "subjectTypeValue"=>["testTopicValue","testWorkplaceValue1","testTemporal"]}	      
 	       # post :create, :dams_object => {titleValue: ["Test Title"], beginDate: ["2013"], typeOfResource: ["text"], subjectValue: ["subjectValue1", "subjectValue2"]}
         }.to change { DamsObject.count }.by(1)

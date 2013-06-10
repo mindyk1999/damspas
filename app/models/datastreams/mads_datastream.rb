@@ -27,7 +27,25 @@ class MadsDatastream < ActiveFedora::RdfxmlRDFDatastream
       valURI.first
     end
   end
-         
+
+	class ElementList
+	  include ActiveFedora::RdfObject
+	  def default_write_point_for_values
+	    [:elementValue]
+	  end
+	  #rdf_type MADS.elementList
+	  map_predicates do |map|
+	    map.topicElement(in: MADS, to: "TopicElement")
+	    map.temporalElement(in: MADS, to: "TemporalElement")
+	    map.fullNameElement(in: MADS, to: "FullNameElement")
+	    map.dateNameElement(in: MADS, to: "DateNameElement")
+	    map.nameElement(in: MADS, to: "NameElement")
+	    #map.elementValue(in: MADS)
+	  end
+	end
+
+
+                     
   class List 
     include ActiveFedora::RdfList
     class FullNameElement

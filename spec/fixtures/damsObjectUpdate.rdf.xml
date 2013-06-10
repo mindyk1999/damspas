@@ -1,0 +1,421 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dams="http://library.ucsd.edu/ontology/dams#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:mads="http://www.loc.gov/mads/rdf/v1#"
+    xmlns:damsid="http://library.ucsd.edu/ark:/20775/">
+  <dams:Object rdf:about="http://library.ucsd.edu/ark:/20775/bb80808080">
+    <dams:note>
+      <dams:Note>
+        <rdf:value>Dissertation is in English.</rdf:value>
+        <dams:displayLabel>language</dams:displayLabel>
+        <dams:type>language_of_materials</dams:type>
+      </dams:Note>
+    </dams:note>
+    <dams:relationship>
+      <dams:Relationship>
+        <dams:name>
+          <mads:PersonalName rdf:about="http://library.ucsd.edu/ark:/20775/bbXXXXXXX1">
+            <mads:authoritativeLabel>Yañez, Angélica María</mads:authoritativeLabel>
+            <mads:elementList rdf:parseType="Collection">
+              <mads:GivenNameElement>
+                <mads:elementValue>Angélica María</mads:elementValue>
+              </mads:GivenNameElement>
+              <mads:FamilyNameElement>
+                <mads:elementValue>Yañez</mads:elementValue>
+              </mads:FamilyNameElement>
+            </mads:elementList>
+          </mads:PersonalName>
+        </dams:name>
+        <dams:role>
+          <dams:Role rdf:about="http://library.ucsd.edu/ark:/20775/bd55639754">
+            <dams:vocabulary>
+              <dams:Vocabulary rdf:about="http://library.ucsd.edu/ark:/20775/bb14141414">
+                <dams:description>Role</dams:description>
+              </dams:Vocabulary>
+            </dams:vocabulary>
+            <dams:code>cre</dams:code>
+            <rdf:value>Creator</rdf:value>
+            <dams:valueURI rdf:resource="http://id.loc.gov/vocabulary/relators/cre"/>
+          </dams:Role>
+        </dams:role>
+      </dams:Relationship>
+    </dams:relationship>
+    <dams:typeOfResource>mixed material</dams:typeOfResource>
+    <dams:otherRights>
+      <dams:OtherRights rdf:about="http://library.ucsd.edu/ark:/20775/bb06060606">
+        <dams:otherRightsBasis>fair use</dams:otherRightsBasis>
+        <dams:otherRightsURI rdf:resource="http://library.ucsd.edu/lisn/policy/2010-12-31-a.pdf"/>
+        <dams:relationship>
+          <dams:Relationship>
+            <dams:role>
+              <dams:Role rdf:about="http://library.ucsd.edu/ark:/20775/bd3004227d">
+                <dams:vocabulary rdf:resource="http://library.ucsd.edu/ark:/20775/bb14141414"/>
+                <rdf:value>Decision Maker</rdf:value>
+              </dams:Role>
+            </dams:role>
+            <dams:name>
+              <mads:PersonalName rdf:about="http://library.ucsd.edu/ark:/20775/bb09090909">
+                <mads:authoritativeLabel xml:lang="en">Administrator, Bob, 1977-</mads:authoritativeLabel>
+                <mads:elementList rdf:parseType="Collection">
+                  <mads:FullNameElement>
+                    <mads:elementValue>Administrator, Bob,</mads:elementValue>
+                  </mads:FullNameElement>
+                  <mads:DateNameElement>
+                    <mads:elementValue xml:lang="en">1977-</mads:elementValue>
+                  </mads:DateNameElement>
+                </mads:elementList>
+              </mads:PersonalName>
+            </dams:name>
+          </dams:Relationship>
+        </dams:relationship>
+        <dams:permission>
+          <dams:Permission>
+            <dams:type>display</dams:type>
+            <dams:beginDate>2011-09-24</dams:beginDate>
+          </dams:Permission>
+        </dams:permission>
+      </dams:OtherRights>
+    </dams:otherRights>
+    <dams:hasComponent>
+      <dams:Component rdf:about="http://library.ucsd.edu/ark:/20775/bb80808080/2">
+        <dams:typeOfResource>image</dams:typeOfResource>
+        <dams:title>
+          <dams:Title>
+            <rdf:value>Supplementary Image</rdf:value>
+          </dams:Title>
+        </dams:title>
+        <dams:date>
+          <dams:Date>
+            <rdf:value>May 24, 1980</rdf:value>
+            <dams:beginDate>1980-05-24</dams:beginDate>
+            <dams:endDate>1980-05-24</dams:endDate>
+          </dams:Date>
+        </dams:date>
+      </dams:Component>
+    </dams:hasComponent>
+    <dams:note>
+      <dams:Note>
+        <dams:displayLabel>Local ID</dams:displayLabel>
+        <rdf:value>b6700311</rdf:value>
+        <dams:type>identifier</dams:type>
+      </dams:Note>
+    </dams:note>
+    <dams:license>
+      <dams:License rdf:about="http://library.ucsd.edu/ark:/20775/bb22222222">
+        <dams:licenseNote>License note text here...</dams:licenseNote>
+        <dams:licenseURI rdf:resource="http://library.ucsd.edu/licenses/lic12341.pdf"/>
+        <dams:permission>
+          <dams:Permission>
+            <dams:type>display</dams:type>
+            <dams:beginDate>2010-01-01</dams:beginDate>
+          </dams:Permission>
+        </dams:permission>
+      </dams:License>
+    </dams:license>
+    <dams:rightsHolder rdf:resource="http://library.ucsd.edu/ark:/20775/bb09090909"/>
+    <dams:subject>
+      <mads:ComplexSubject>
+        <mads:authoritativeLabel>Black Panther Party--History</mads:authoritativeLabel>
+        <mads:componentList rdf:parseType="Collection">
+          <mads:CorporateName rdf:about="http://library.ucsd.edu/ark:/20775/bbXXXXXXX7">
+            <mads:elementList rdf:parseType="Collection">
+              <mads:NameElement>
+                <mads:elementValue>Black Panther Party</mads:elementValue>
+                <dams:authority>Library of Congress Name Authority File</dams:authority>
+                <dams:authorityURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                >http://id.loc.gov/authorities/names</dams:authorityURI>
+                <dams:valueURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                >http://id.loc.gov/authorities/names/n80095585</dams:valueURI>
+              </mads:NameElement>
+            </mads:elementList>
+          </mads:CorporateName>
+          <mads:Topic rdf:about="http://library.ucsd.edu/ark:/20775/bbXXXXXXX4">
+            <mads:elementList rdf:parseType="Collection">
+              <mads:TopicElement>
+                <mads:elementValue>History</mads:elementValue>
+              </mads:TopicElement>
+            </mads:elementList>
+            <dams:authority>Library of Congress Subject Headings</dams:authority>
+            <dams:authorityURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://id.loc.gov/authorities/subjects</dams:authorityURI>
+            <dams:valueURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://id.loc.gov/authorities/subjects/sh99005024</dams:valueURI>
+          </mads:Topic>
+        </mads:componentList>
+      </mads:ComplexSubject>
+    </dams:subject>
+    <dams:title>
+      <dams:Title>
+        <rdf:value>Sample Complex Object Record #1</rdf:value>
+        <dams:subtitle>a newspaper PDF with a single attached image</dams:subtitle>
+        <dams:type>main</dams:type>
+      </dams:Title>
+    </dams:title>
+    <dams:assembledCollection>
+      <dams:AssembledCollection rdf:about="http://library.ucsd.edu/ark:/20775/bb03030303">
+        <dams:relationship>
+          <dams:Relationship>
+            <dams:role rdf:resource="http://library.ucsd.edu/ark:/20775/bd55639754"/>
+            <dams:name>
+              <mads:PersonalName rdf:about="http://library.ucsd.edu/ark:/20775/bb08080808">
+                <mads:authoritativeLabel xml:lang="en">Artist, Alice, 1966-</mads:authoritativeLabel>
+                <mads:elementList rdf:parseType="Collection">
+                  <mads:FullNameElement>
+                    <mads:elementValue>Artist, Alice,</mads:elementValue>
+                    <mads:elementValue>Jefferson, Thomas</mads:elementValue>
+                  </mads:FullNameElement>
+                  <mads:DateNameElement>
+                    <mads:elementValue xml:lang="en">1966-</mads:elementValue>
+                    <mads:elementValue xml:lang="en">1743-1826-</mads:elementValue>
+                  </mads:DateNameElement>
+                </mads:elementList>
+              </mads:PersonalName>
+            </dams:name>
+          </dams:Relationship>
+        </dams:relationship>
+        <dams:hasProvenanceCollection>
+          <dams:ProvenanceCollection rdf:about="http://library.ucsd.edu/ark:/20775/bb24242424">
+            <rdf:type rdf:resource="http://library.ucsd.edu/ontology/dams#Collection"/>
+            <dams:title>
+              <dams:Title>
+                <dams:type>main</dams:type>
+                <rdf:value>Historical Dissertations</rdf:value>
+              </dams:Title>
+            </dams:title>
+            <dams:date>
+              <dams:Date>
+                <dams:beginDate>2009-05-03</dams:beginDate>
+                <dams:endDate>2010-06-30</dams:endDate>
+              </dams:Date>
+            </dams:date>
+            <dams:language>
+              <dams:Language rdf:about="http://library.ucsd.edu/ark:/20775/bd0410344f">
+                <dams:vocabulary>
+                  <dams:Vocabulary rdf:about="http://library.ucsd.edu/ark:/20775/bb15151515">
+                    <dams:description>Language</dams:description>
+                  </dams:Vocabulary>
+                </dams:vocabulary>
+                <dams:code>en</dams:code>
+                <rdf:value>English</rdf:value>
+                <dams:valueURI rdf:resource="http://id.loc.gov/vocabulary/iso639-1/en"/>
+              </dams:Language>
+            </dams:language>
+            <dams:hasPart>
+              <dams:ProvenanceCollectionPart rdf:about="http://library.ucsd.edu/ark:/20775/bb25252525">
+                <rdf:type rdf:resource="http://library.ucsd.edu/ontology/dams#Collection"/>
+                <dams:title>
+                  <dams:Title>
+                    <dams:type>main</dams:type>
+                    <rdf:value>May 2009</rdf:value>
+                  </dams:Title>
+                </dams:title>
+                <dams:date>
+                  <dams:Date>
+                    <dams:beginDate>2009-05-03</dams:beginDate>
+                    <dams:endDate>2009-05-31</dams:endDate>
+                  </dams:Date>
+                </dams:date>
+                <dams:language rdf:resource="http://library.ucsd.edu/ark:/20775/bd0410344f"/>
+                <dams:provenanceCollection rdf:resource="http://library.ucsd.edu/ark:/20775/bb24242424"/>
+                <dams:event>
+                  <dams:DAMSEvent rdf:about="http://library.ucsd.edu/ark:/20775/bb30303030">
+                    <dams:type>collection creation</dams:type>
+                    <dams:eventDate>2012-11-06T09:26:34-0500</dams:eventDate>
+                    <dams:outcome>success</dams:outcome>
+                    <dams:relationship rdf:parseType="Resource">
+                      <dams:role rdf:resource="http://library.ucsd.edu/ark:/20775/bd1707286t"/>
+                      <dams:name>
+                        <mads:PersonalName rdf:about="http://library.ucsd.edu/ark:/20775/bb56565656">
+                          <mads:authoritativeLabel xml:lang="en"
+                          >Administrator, Bob, 1977-</mads:authoritativeLabel>
+                          <mads:elementList rdf:parseType="Collection">
+                            <mads:FullNameElement>
+                              <mads:elementValue>Administrator, Bob,</mads:elementValue>
+                            </mads:FullNameElement>
+                            <mads:DateNameElement>
+                              <mads:elementValue xml:lang="en"
+                              >1977-</mads:elementValue>
+                            </mads:DateNameElement>
+                          </mads:elementList>
+                        </mads:PersonalName>
+                      </dams:name>
+                    </dams:relationship>
+                  </dams:DAMSEvent>
+                </dams:event>
+              </dams:ProvenanceCollectionPart>
+            </dams:hasPart>
+            <dams:event>
+              <dams:DAMSEvent rdf:about="http://library.ucsd.edu/ark:/20775/bb29292929">
+                <dams:type>collection creation</dams:type>
+                <dams:eventDate>2012-11-06T09:26:34-0500</dams:eventDate>
+                <dams:outcome>success</dams:outcome>
+                <dams:relationship rdf:parseType="Resource">
+                  <dams:role rdf:resource="http://library.ucsd.edu/ark:/20775/bd1707286t"/>
+                  <dams:name rdf:resource="http://library.ucsd.edu/ark:/20775/bb56565656"/>
+                </dams:relationship>
+              </dams:DAMSEvent>
+            </dams:event>
+          </dams:ProvenanceCollection>
+        </dams:hasProvenanceCollection>
+        <dams:language rdf:resource="http://library.ucsd.edu/ark:/20775/bd0410344f"/>
+        <dams:date>
+          <dams:Date>
+            <dams:beginDate>2009-05-03</dams:beginDate>
+          </dams:Date>
+        </dams:date>
+        <dams:preferredCitationNote>
+          <dams:PreferredCitationNote rdf:about="http://library.ucsd.edu/ark:/20775/bd3959888k">
+            <dams:type>citation</dams:type>
+            <dams:displayLabel>Citation</dams:displayLabel>
+            <rdf:value>"Data at Redshift=1.4 (RD0022)."  From: Rick Wagner, Eric J. Hallman, Brian W. O'Shea, Jack O. Burns, Michael L. Norman, Robert Harkness, and Geoffrey So.  "The Santa Fe Light Cone Simulation research project files."  UC San Diego Research Cyberinfrastructure Data Curation. (Data version 1.0, published 2013; http://dx.doi.org/10.5060/&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;)</rdf:value>
+          </dams:PreferredCitationNote>
+        </dams:preferredCitationNote>
+        <dams:note>
+          <dams:Note rdf:about="http://library.ucsd.edu/ark:/20775/bd52568274">
+            <dams:type>abstract</dams:type>
+            <dams:displayLabel>Abstract</dams:displayLabel>
+            <rdf:value>This is some text to describe the basic contents of the object.</rdf:value>
+          </dams:Note>
+        </dams:note>
+        <dams:scopeContentNote>
+          <dams:ScopeContentNote>
+            <rdf:value>Electronic theses and dissertations submitted by UC San Diego students as part of their degree requirements and representing all UC San Diego academic programs.</rdf:value>
+            <dams:displayLabel>Scope and contents</dams:displayLabel>
+            <dams:type>scope_and_content</dams:type>
+          </dams:ScopeContentNote>
+        </dams:scopeContentNote>
+        <dams:note>
+          <dams:Note>
+            <dams:displayLabel>ARK ID</dams:displayLabel>
+            <rdf:value>http://libraries.ucsd.edu/ark:/20775/bb80808080</rdf:value>
+            <dams:type>identifier</dams:type>
+          </dams:Note>
+        </dams:note>
+        <dams:title>
+          <dams:Title>
+            <dams:type>main</dams:type>
+            <rdf:value>UCSD Electronic Theses and Dissertations</rdf:value>
+          </dams:Title>
+        </dams:title>
+        <dams:custodialResponsibilityNote>
+          <dams:CustodialResponsibilityNote rdf:about="http://library.ucsd.edu/ark:/20775/bd9113515d">
+            <dams:type>custodial_history</dams:type>
+            <dams:displayLabel>Digital object made available by</dams:displayLabel>
+            <rdf:value>Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)</rdf:value>
+          </dams:CustodialResponsibilityNote>
+        </dams:custodialResponsibilityNote>
+        <dams:scopeContentNote>
+          <dams:ScopeContentNote rdf:about="http://library.ucsd.edu/ark:/20775/bd1366006j">
+            <dams:type>scope_and_content</dams:type>
+            <dams:displayLabel>Scope and contents</dams:displayLabel>
+            <rdf:value>Electronic theses and dissertations submitted by UC San Diego students as part of their degree requirements and representing all UC San Diego academic programs.</rdf:value>
+          </dams:ScopeContentNote>
+        </dams:scopeContentNote>
+        <dams:note>
+          <dams:Note>
+            <rdf:value>Electronic theses and dissertations submitted by UC San Diego students as part of their degree requirements and representing all UC San Diego academic programs.</rdf:value>
+            <dams:displayLabel>Scope and contents</dams:displayLabel>
+            <dams:type>scope_and_content</dams:type>
+          </dams:Note>
+        </dams:note>
+      </dams:AssembledCollection>
+    </dams:assembledCollection>
+    <dams:subject>
+      <mads:ComplexSubject rdf:about="http://library.ucsd.edu/ark:/20775/bbXXXXXXX5">
+        <mads:authoritativeLabel>Academic dissertations</mads:authoritativeLabel>
+        <mads:componentList rdf:parseType="Collection">
+          <mads:GenreForm>
+            <mads:elementList rdf:parseType="Collection">
+              <mads:GenreFormElement>
+                <mads:elementValue>Academic dissertations</mads:elementValue>
+              </mads:GenreFormElement>
+            </mads:elementList>
+            <dams:authority>RBMS Controlled Vocabularies: Genre Terms</dams:authority>
+            <dams:authorityURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.rbms.info/committees/bibliographic_standards/controlled_vocabularies/genre/alphabetical_list.htm</dams:authorityURI>
+            <dams:valueURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.rbms.info/committees/bibliographic_standards/controlled_vocabularies/genre/tr19.htm</dams:valueURI>
+          </mads:GenreForm>
+        </mads:componentList>
+      </mads:ComplexSubject>
+    </dams:subject>
+    <dams:unit>
+      <dams:Unit rdf:about="http://library.ucsd.edu/ark:/20775/bb02020202">
+        <dams:unitName>Library Collections</dams:unitName>
+        <dams:code>dlp</dams:code>
+        <dams:unitDescription>Search over 56,690 images, documents and video files from the UCSD Libraries.</dams:unitDescription>
+        <dams:unitURI>http://libraries.ucsd.edu/digital/</dams:unitURI>
+        <dams:unitGroup>dams-curator</dams:unitGroup>
+      </dams:Unit>
+    </dams:unit>
+    <dams:language rdf:resource="http://library.ucsd.edu/ark:/20775/bd0410344f"/>
+    <dams:hasComponent>
+      <dams:Component rdf:about="http://library.ucsd.edu/ark:/20775/bb80808080/1">
+        <dams:typeOfResource>text</dams:typeOfResource>
+        <dams:note>
+          <dams:Note>
+            <rdf:value>1 PDF (8 p.)</rdf:value>
+            <dams:displayLabel>Extent</dams:displayLabel>
+            <dams:type>dimensions</dams:type>
+          </dams:Note>
+        </dams:note>
+        <dams:title>
+          <dams:Title>
+            <rdf:value>The Daily Guardian</rdf:value>
+            <dams:subtitle>Volume 40, Number 37</dams:subtitle>
+            <dams:type>main</dams:type>
+          </dams:Title>
+        </dams:title>
+        <dams:date>
+          <dams:Date>
+            <rdf:value>Tuesday, May 20, 1980</rdf:value>
+            <dams:beginDate>1980-05-20</dams:beginDate>
+            <dams:endDate>1980-05-20</dams:endDate>
+          </dams:Date>
+        </dams:date>
+      </dams:Component>
+    </dams:hasComponent>
+    <dams:otherResource>
+      <dams:RelatedResource>
+        <dams:type>online exhibit</dams:type>
+        <dams:uri>http://foo.com/1234</dams:uri>
+        <dams:description>Sample Complex Object Record #1: The Exhibit!</dams:description>
+      </dams:RelatedResource>
+    </dams:otherResource>
+    <dams:note>
+      <dams:Note>
+        <dams:displayLabel>ARK ID</dams:displayLabel>
+        <rdf:value>http://libraries.ucsd.edu/ark:/20775/bb80808080</rdf:value>
+        <dams:type>identifier</dams:type>
+      </dams:Note>
+    </dams:note>
+    <dams:copyright>
+      <dams:Copyright rdf:about="http://library.ucsd.edu/ark:/20775/bb05050505">
+        <dams:copyrightStatus>Under copyright -- 3rd Party</dams:copyrightStatus>
+        <dams:copyrightJurisdiction>us</dams:copyrightJurisdiction>
+        <dams:copyrightPurposeNote>This work is available from the UC San Diego Libraries. This digital copy of the work is intended to support research, teaching, and private study.</dams:copyrightPurposeNote>
+        <dams:copyrightNote>This work is protected by the U.S. Copyright Law (Title 17, U.S.C.).  Use of this work beyond that allowed by "fair use" requires written permission of the copyright holder(s). Responsibility for obtaining permissions and any use and distribution of this work rests exclusively with the user and not the UC San Diego Libraries.</dams:copyrightNote>
+        <dams:date>
+          <dams:Date>
+            <dams:beginDate>1993-12-31</dams:beginDate>
+          </dams:Date>
+        </dams:date>
+      </dams:Copyright>
+    </dams:copyright>
+    <dams:statute>
+      <dams:Statute rdf:about="http://library.ucsd.edu/ark:/20775/bb21212121">
+        <dams:statuteCitation>Family Education Rights and Privacy Act (FERPA)</dams:statuteCitation>
+        <dams:statuteJurisdiction>us</dams:statuteJurisdiction>
+        <dams:statuteNote>Prohibits disclosure of educational records containing personally-identifying information except in certain circumstances.</dams:statuteNote>
+        <dams:restriction>
+          <dams:Restriction>
+            <dams:type>display</dams:type>
+            <dams:beginDate>1974-08-21</dams:beginDate>
+            <rdf:value>Until 50 years after death</rdf:value>
+          </dams:Restriction>
+        </dams:restriction>
+      </dams:Statute>
+    </dams:statute>
+  </dams:Object>
+</rdf:RDF>
