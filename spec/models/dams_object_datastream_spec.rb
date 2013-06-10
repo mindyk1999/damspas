@@ -300,7 +300,7 @@ END
     describe "an instance with content for new object model" do
       subject do
         subject = DamsObjectDatastream.new(stub('inner object', :pid=>'bd6212468x', :new? =>true), 'descMetadata')
-        subject.content = File.new('spec/fixtures/damsObjectNewModel.xml').read
+        subject.content = File.new('spec/fixtures/damsObjectNewModel.rdf.xml').read
         subject
       end
       it "should have a subject" do

@@ -1,4 +1,7 @@
 class MADS < RDF::Vocabulary("http://www.loc.gov/mads/rdf/v1#")
+  property :MADSScheme
+  property :isMemberOfMADSScheme
+  property :code
   property :complexSubject
   property :ComplexSubject
   property :authoritativeLabel
