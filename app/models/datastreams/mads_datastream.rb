@@ -1,52 +1,36 @@
 class MadsDatastream < ActiveFedora::RdfxmlRDFDatastream
-  
-  def sameAs=(val)
-    if val.class == Array
-    	val = val.first
-    end  
-    @sameAs = RDF::Resource.new(val)
-  end
-  def sameAs
-    if @sameAs != nil
-      @sameAs
-    else
-      sameAsNode.first
-    end
-  end
- 
-  def valueURI=(val)
-    if val.class == Array
-    	val = val.first
-    end
-    @valURI = RDF::Resource.new(val)
-  end
-  def valueURI
-    if @valURI != nil
-      @valURI
-    else
-      valURI.first
-    end
-  end
 
+  def externalAuthority=(val)
+    if val.class == Array
+    	val = val.first
+    end
+    @extAuthority = RDF::Resource.new(val)
+  end
+  def externalAuthority
+    if @extAuthority != nil
+      @extAuthority
+    else
+      externalAuthorityNode.first
+    end
+  end
 	class ElementList
 	  include ActiveFedora::RdfObject
-	  def default_write_point_for_values
-	    [:elementValue]
-	  end
-	  #rdf_type MADS.elementList
+
 	  map_predicates do |map|
-	    map.topicElement(in: MADS, to: "TopicElement", :class_name => "TopicElement")
+	    map.topicElement(in: MADS, to: "TopicElement", :class_name => "MadsDatastream::TopicElement")
 	    map.temporalElement(in: MADS, to: "TemporalElement")
 	    map.fullNameElement(in: MADS, to: "FullNameElement")
 	    map.dateNameElement(in: MADS, to: "DateNameElement")
 	    map.nameElement(in: MADS, to: "NameElement")
-	   # map.elementValue(in: MADS)
 	  end
+	  accepts_nested_attributes_for :topicElement, :temporalElement, :fullNameElement, :dateNameElement, :nameElement
 	end
 
     class TopicElement
       include ActiveFedora::RdfObject
-      rdf_type MADS.TopicElement
+      def default_write_point_for_values
+	    [:elementValue]
+	  end
       map_predicates do |map|   
         map.elementValue(:in=> MADS)
       end
@@ -137,28 +121,20 @@ class MadsDatastream < ActiveFedora::RdfxmlRDFDatastream
  rdf_subject { |ds| RDF::URI.new(Rails.configuration.id_namespace + ds.pid)}
 
   def serialize
-    if(!sameAs.nil?)
+    if(!externalAuthority.nil?)
       if new?
-        graph.insert([rdf_subject, OWL.sameAs, sameAs])
+        graph.insert([rdf_subject, MADS.hasExactExternalAuthority, externalAuthority])
       else
-        graph.update([rdf_subject, OWL.sameAs, sameAs])
+        graph.update([rdf_subject, MADS.hasExactExternalAuthority, externalAuthority])
       end
-    end
-    if(!valueURI.nil?)
-      if new?
-        graph.insert([rdf_subject, DAMS.valueURI, valueURI])
-      else
-        graph.update([rdf_subject, DAMS.valueURI, valueURI])
-      end
-    end
+    end    
     super
   end
   
   def to_solr (solr_doc = {})
     Solrizer.insert_field(solr_doc, 'name', name)
-	Solrizer.insert_field(solr_doc, 'sameAs', sameAs.to_s)
 	Solrizer.insert_field(solr_doc, 'authority', authority)
- 	Solrizer.insert_field(solr_doc, "valueURI", valueURI.to_s)
+ 	Solrizer.insert_field(solr_doc, "hasExactExternalAuthority", externalAuthority.to_s)
 	list = elementList.first
 	i = 0
 	if list != nil

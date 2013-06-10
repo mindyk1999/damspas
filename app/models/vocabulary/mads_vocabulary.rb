@@ -30,4 +30,5 @@ class MADS < RDF::Vocabulary("http://www.loc.gov/mads/rdf/v1#")
   property :FamilyName
   property :PersonalName
   property :componentList
+  property :hasExactExternalAuthority
 end

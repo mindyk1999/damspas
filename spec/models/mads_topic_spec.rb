@@ -8,36 +8,28 @@ describe MadsTopic do
   it "should create a xml" do    
     subject.name = "Baseball"
     subject.authority = "lcsh"
-    subject.sameAs =  "http://id.loc.gov/authorities/subjects/sh85012026"
-    subject.valueURI = "http://id.loc.gov/n9999999999"
-    subject.elementList.build
+    subject.externalAuthority = "http://id.loc.gov/n9999999999"
+    subject.elementList.build   
     tmpTopicElement = MadsDatastream::TopicElement.new(RDF::Graph.new)
-    tmpTopicElement.elementValue = "History"
- 
-    subject.elementList.first.topicElement = "History"
-   
     subject.elementList.first.topicElement = tmpTopicElement
-    #puts  subject.elementList.first.topicElement
-    #subject.elementList.first.topicElement[1].elementValue = "History"
-    xml =<<END
-<rdf:RDF
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:mads="http://www.loc.gov/mads/rdf/v1#"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:dams="http://library.ucsd.edu/ontology/dams#">
- <mads:Topic rdf:about="http://library.ucsd.edu/ark:/20775/zzXXXXXXX1">
-    <mads:authoritativeLabel>Baseball</mads:authoritativeLabel>
-    <dams:authority>lcsh</dams:authority>
-    <owl:sameAs rdf:resource="http://id.loc.gov/authorities/subjects/sh85012026"/>
-    <dams:valueURI rdf:resource="http://id.loc.gov/n9999999999"/>
-    <mads:elementList rdf:parseType="Collection">
-      <mads:TopicElement>
-        <mads:elementValue>History</mads:elementValue>
-      </mads:TopicElement>
-    </mads:elementList>    
-  </mads:Topic>
-</rdf:RDF>
-END
+    subject.elementList.first.topicElement.first.elementValue = "History"
+    list1_id = subject.elementList[0].topicElement[0].rdf_subject.id
+    
+    xml ='<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns0="http://www.loc.gov/mads/rdf/v1#" xmlns:ns1="http://library.ucsd.edu/ontology/dams#">
+     <ns0:Topic rdf:about="http://library.ucsd.edu/ark:/20775/zzXXXXXXX1">
+       <ns1:authority>lcsh</ns1:authority>
+       <ns0:authoritativeLabel>Baseball</ns0:authoritativeLabel>
+       <ns0:elementList>
+         <rdf:Description>
+           <ns0:TopicElement rdf:nodeID="'+list1_id+'"/>
+         </rdf:Description>
+       </ns0:elementList>
+       <ns0:hasExactExternalAuthority rdf:resource="http://id.loc.gov/n9999999999"/>
+     </ns0:Topic>
+     <rdf:Description rdf:nodeID="'+list1_id+'">
+       <ns0:elementValue>History</ns0:elementValue>
+     </rdf:Description>
+	 </rdf:RDF>'
     subject.damsMetadata.content.should be_equivalent_to xml
 
   end
