@@ -19,46 +19,7 @@ describe MadsTopicDatastream do
         subject.authority = "lcsh"
         subject.authority.should == ["lcsh"]
       end    
-      
- 	  it "when given a Node should simply insert it" do
-        pending "TODO: Should this be the behavior? -MZ 05/2013"
-        new_node = RDF::Node.new
-        subject.topic << new_node
-        subject.topic.first.should == new_node
-      end  
-      
-      it "should build proper rdf graph" do
-        subject.topic.build("Cosmology")
-        subject.topic.build("Quantum States")
-        
-        # (Grabbing node ids for use in expected_xml assertion)
-        list1_id = subject.topic[0].elementList[0].rdf_subject.id
-        list2_id = subject.topic[1].elementList[0].rdf_subject.id
-        
-        expected_xml = '<?xml version="1.0" encoding="UTF-8"?>
-			<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns0="http://www.loc.gov/mads/rdf/v1#">
-			<rdf:Description rdf:about="info:fedora/foo">
-			<ns0:Topic>
-			<rdf:Description>
-			<ns0:elementList rdf:nodeID="'+list1_id+'"/>
-			</rdf:Description>
-			</ns0:Topic>
-			<ns0:Topic>
-			<rdf:Description>
-			<ns0:elementList rdf:nodeID="'+list2_id+'"/>
-			</rdf:Description>
-			</ns0:Topic>
-			</rdf:Description>
-			<ns0:elementList rdf:nodeID="'+list1_id+'">
-			<ns0:TopicElement>Cosmology</ns0:TopicElement>
-			</ns0:elementList>
-			<ns0:elementList rdf:nodeID="'+list2_id+'">
-			<ns0:TopicElement>Quantum States</ns0:TopicElement>
-			</ns0:elementList>
-			</rdf:RDF>'
-        
-        subject-p9oml0p.graph.dump(:rdfxml).should be_equivalent_to expected_xml
-      end                
+             
     end
 
     describe "an instance with content" do
