@@ -10,11 +10,10 @@ describe MadsTopic do
     subject.authority = "lcsh"
     subject.externalAuthority = "http://id.loc.gov/n9999999999"
     subject.elementList.build   
-    tmpTopicElement = MadsDatastream::TopicElement.new(RDF::Graph.new)
-    subject.elementList.first.topicElement = tmpTopicElement
-    subject.elementList.first.topicElement.first.elementValue = "History"
-    list1_id = subject.elementList[0].topicElement[0].rdf_subject.id
-    
+	subject.elementList.first.topicElement.build
+	subject.elementList.first.topicElement.first.elementValue = "History"
+	list1_id = subject.elementList[0].topicElement[0].rdf_subject.id
+
     xml ='<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns0="http://www.loc.gov/mads/rdf/v1#" xmlns:ns1="http://library.ucsd.edu/ontology/dams#">
      <ns0:Topic rdf:about="http://library.ucsd.edu/ark:/20775/zzXXXXXXX1">
        <ns1:authority>lcsh</ns1:authority>
