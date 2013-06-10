@@ -41,8 +41,8 @@ describe MadsConferenceNameDatastream do
         subject.name.should == ["American Library Association. Annual Conference"]
       end
 
-      it "should have a sameAs value" do
-        subject.sameAs.to_s.should == "http://id.loc.gov/authorities/names/n2009036967"
+      it "should have a externalAuthority value" do
+        subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
  
       it "should have an authority" do

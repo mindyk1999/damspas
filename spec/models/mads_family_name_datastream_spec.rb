@@ -41,8 +41,8 @@ describe MadsFamilyNameDatastream do
         subject.name.should == ["Calder (Family : 1757-1959 : N.C.)"]
       end
 
-      it "should have a sameAs value" do
-        subject.sameAs.to_s.should == "http://id.loc.gov/authorities/names/n2012026835"
+      it "should have a externalAuthority value" do
+        subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
  
       it "should have an authority" do

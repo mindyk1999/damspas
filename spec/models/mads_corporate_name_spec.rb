@@ -8,8 +8,7 @@ describe MadsCorporateName do
   it "should create a xml" do    
     subject.name = "Lawrence Livermore Laboratory"
     subject.authority = "naf"
-    subject.sameAs =  "http://lccn.loc.gov/n50000352"
-    subject.valueURI = "http://id.loc.gov/n9999999999"
+    subject.externalAuthority = "http://id.loc.gov/n9999999999"
     xml =<<END
 <rdf:RDF
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -18,9 +17,8 @@ describe MadsCorporateName do
   xmlns:dams="http://library.ucsd.edu/ontology/dams#">
    <mads:CorporateName rdf:about="http://library.ucsd.edu/ark:/20775/zzXXXXXXX1">
     <dams:authority>naf</dams:authority>
-    <owl:sameAs rdf:resource="http://lccn.loc.gov/n50000352"/>
     <mads:authoritativeLabel>Lawrence Livermore Laboratory</mads:authoritativeLabel>
-    <dams:valueURI rdf:resource="http://id.loc.gov/n9999999999"/>
+    <mads:hasExactExternalAuthority rdf:resource="http://id.loc.gov/n9999999999"/>
   </mads:CorporateName>
 </rdf:RDF>
 END

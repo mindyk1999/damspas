@@ -33,17 +33,13 @@ describe MadsNameDatastream do
       it "should have name" do
         subject.name.should == ["Generic Name"]
       end
-
-      it "should have a sameAs value" do
-        subject.sameAs.to_s.should == "http://id.loc.gov/authorities/names/n2012026835"
-      end
  
       it "should have an authority" do
         subject.authority.should == ["naf"]
       end
 
-      it "should have a valueURI" do
-        subject.valURI.should == ["http://id.loc.gov/n9999999999"]
+      it "should have a externalAuthority value" do
+        subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
                  
       it "should have fields" do
@@ -56,9 +52,8 @@ describe MadsNameDatastream do
       it "should have a fields from solr doc" do
         solr_doc = subject.to_solr
         solr_doc["name_element_tesim"].should == ["Generic Name"]
-        solr_doc["valueURI_tesim"].should == ["http://id.loc.gov/n9999999999"]
+        solr_doc["hasExactExternalAuthority_tesim"].should == ["http://id.loc.gov/authorities/subjects/sh85012026"]
         solr_doc["authority_tesim"].should == ["naf"]
-        solr_doc["sameAs_tesim"].should == ["http://id.loc.gov/authorities/names/n2012026835"]
       end    
     end
   end

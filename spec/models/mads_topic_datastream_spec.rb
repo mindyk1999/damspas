@@ -34,7 +34,7 @@ describe MadsTopicDatastream do
         subject.name.should == ["Baseball"]
       end
 
-      it "should have a sameAs value" do
+      it "should have a externalAuthority value" do
         subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
  

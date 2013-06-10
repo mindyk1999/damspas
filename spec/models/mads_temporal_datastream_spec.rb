@@ -23,7 +23,7 @@ describe MadsTemporalDatastream do
 
     describe "an instance with content" do
       subject do
-        subject = MadsOccupationDatastream.new(stub('inner object', :pid=>'bd59394235', :new? =>true), 'damsMetadata')
+        subject = MadsTemporalDatastream.new(stub('inner object', :pid=>'bd59394235', :new? =>true), 'damsMetadata')
         subject.content = File.new('spec/fixtures/madsTemporal.rdf.xml').read
         subject
       end
@@ -33,8 +33,8 @@ describe MadsTemporalDatastream do
         subject.name.should == ["16th century"]
       end
 
-      it "should have a sameAs value" do
-        subject.sameAs.to_s.should == "http://id.loc.gov/authorities/sh2002012470"
+      it "should have a externalAuthority value" do
+        subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
  
       it "should have an authority" do

@@ -33,15 +33,12 @@ describe MadsGeographicDatastream do
         subject.name.should == ["Ness, Loch (Scotland)"]
       end
 
-      it "should have a sameAs value" do
-        subject.sameAs.to_s.should == "http://id.loc.gov/authorities/sh85090955"
+      it "should have a externalAuthority value" do
+        subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
  
       it "should have an authority" do
         subject.authority.should == ["lcsh"]
-      end
-       it "should have an valueURI" do
-        subject.valueURI.to_s.should == "http://id.loc.gov/authorities/sh85090955"
       end
                 
       it "should have fields" do

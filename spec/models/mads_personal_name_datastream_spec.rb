@@ -41,8 +41,8 @@ describe MadsPersonalNameDatastream do
         subject.name.should == ["Burns, Jack O., 1977-"]
       end
 
-      it "should have a sameAs value" do
-        subject.sameAs.to_s.should == "http://lccn.loc.gov/n90694888"
+      it "should have a externalAuthority value" do
+        subject.externalAuthority.to_s.should == "http://id.loc.gov/authorities/subjects/sh85012026"
       end
  
       it "should have an authority" do
