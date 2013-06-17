@@ -7,8 +7,19 @@ class MadsTopicDatastream < MadsDatastream
   end
   rdf_subject { |ds| RDF::URI.new(Rails.configuration.id_namespace + ds.pid)}
   def default_write_point_for_values
-    [:elementList]
+    [:elementList, :topicElement, :elementValue]
   end
+  def elementListValue
+  	eList = elementList.first    
+	eList[0] ?	eList[0].elementValue.first : []	
+  end
+  def elementListValue=(val)
+    if elementList[0] == nil
+      elementList.build
+      elementList.first.topicElement.build
+    end
+	elementList.first.topicElement.first.elementValue = val 
+  end       
   def serialize
     graph.insert([rdf_subject, RDF.type, MADS.Topic]) if new?
     super
