@@ -68,8 +68,11 @@ module Dams
 	    map.cartographics(:in => DAMS, :to => 'cartographics', :class_name => 'DamsCartographicsInternal')
 	  end
    	  rdf_subject { |ds| RDF::URI.new(Rails.configuration.id_namespace + ds.pid)}
-      accepts_nested_attributes_for :title
-      
+      accepts_nested_attributes_for :title, :date, :relationship, :language, 
+      								:note, :custodialResponsibilityNote, :preferredCitationNote, :scopeContentNote, 
+      								:complexSubject, :builtWorkPlace, :culturalContext, :function, :genreForm, :geographic, 
+      								:iconography, :occupation, :scientificName, :stylePeriod, :technique, :temporal, :topic
+	    
 	  def serialize
 	    graph.insert([rdf_subject, RDF.type, DAMS.Object]) if new?
 		if(!@unitURI.nil?)

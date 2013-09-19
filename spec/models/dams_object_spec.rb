@@ -62,43 +62,77 @@ describe DamsObject do
     subject.component.first.title.first.value.should == "The Static Image"
     subject.sourceCapture.scannerManufacturer.should == ["Epson"]
   end
-  
+
+  let(:params) {	
+    {  
+       title_attributes: [
+    	  name: "Sample Complex Object Record #1",
+          mainTitleElement_attributes: [{ elementValue: "Sample Complex Object Record #1" }],
+          subTitleElement_attributes: [{ elementValue: "a newspaper PDF with a single attached image" }],
+          hasVariant_attributes: [{ variantLabel: "The Whale" }],
+          hasTranslationVariant_attributes: [{ variantLabel: "Translation Variant" }],
+          hasAbbreviationVariant_attributes: [{ variantLabel: "Abbreviation Variant" }],
+          hasAcronymVariant_attributes: [{ variantLabel: "Acronym Variant" }],
+          hasExpansionVariant_attributes: [{ variantLabel: "Expansion Variant" }]
+        ],
+        date_attributes: [value: "May 24, 1980", beginDate: "1980-05-24",endDate: "1980-05-24"],
+        relationship_attributes: [name: RDF::Resource.new("#{Rails.configuration.id_namespace}bbXXXXXXX1"),role: RDF::Resource.new("#{Rails.configuration.id_namespace}bbXXXXXXX2")],
+        language_attributes: [name: "TestLang", code: "test"],
+        language: RDF::Resource.new("#{Rails.configuration.id_namespace}xx00000170"),
+        note_attributes:[displayLabel: "ARK ID", value: "http://library.ucsd.edu/ark:/20775/bb80808080", type: "identifier"],  
+        custodialResponsibilityNote_attributes:[displayLabel: "Digital object made available by", value: "Mandeville Special Collections Library", type: "custodial_history"],  
+        preferredCitationNote_attributes:[displayLabel: "Citation", value: "Data at Redshift=1.4 (RD0022)", type: "citation"],  
+        scopeContentNote_attributes:[displayLabel: "Scope and contents", value: "Electronic theses and dissertations submitted by UC San Diego students", type: "scope_and_content"],     
+        topic_attributes: [name: "test subject"],
+        copyright: RDF::Resource.new("#{Rails.configuration.id_namespace}bb05050505"),
+        statute: RDF::Resource.new("#{Rails.configuration.id_namespace}bb21212121"),
+        otherRights: RDF::Resource.new("#{Rails.configuration.id_namespace}bb06060606"),
+        license: RDF::Resource.new("#{Rails.configuration.id_namespace}bb22222222"),
+        rightsHolderPersonal: RDF::Resource.new("#{Rails.configuration.id_namespace}bb09090909")
+  }}
   subject do
-    DamsObject.new pid: "xx80808080"
+    DamsObject.new(pid: 'xx80808080').tap do |t|
+      t.attributes = params
+    end
   end
-  it "should create a xml" do
-    subject.titleValue = "Sample Complex Object Record #1"
-    subject.subtitle = "a newspaper PDF with a single attached image"
-    subject.titleVariant = "The Whale"
-    subject.titleTranslationVariant = "Translation Variant"
-    subject.titleAbbreviationVariant = "Abbreviation Variant"
-    subject.titleAcronymVariant = "Acronym Variant"
-    subject.titleExpansionVariant = "Expansion Variant"
-    subject.dateValue = "May 24, 1980"
-    subject.beginDate = "1980-05-24"
-    subject.endDate = "1980-05-24"
-    subject.subjectValue = ["Black Panther Party--History"]
-    subject.subjectURI = ["bd6724414c"]
-    subject.topic.build.name = "test subject"
-    subject.languageURI = ["xx00000170"]
-    subject.assembledCollectionURI = ["bb03030303"]
-    subject.provenanceCollectionURI = ["bb24242424"]
-    subject.relationshipRoleURI = ["bd8396905c"]
-    subject.relationshipNameType = ["CorporateName"]
-    subject.relationshipNameURI = ["bd8294487v"]      
-    subject.nameType = ["PersonalName"]
-    subject.nameURI = ["xx11111111"]
-    subject.nameTypeValue = ["inline personal name"]
-    subject.copyrightURI = ["bb05050505"]
-    subject.statuteURI = ["bb21212121"]
-    subject.otherRightsURI = ["bb06060606"]
-    subject.licenseURI = ["bb22222222"]
-    subject.rightsHolderURI = ["bb09090909"]
+    
+#  subject do
+#    DamsObject.new pid: "xx80808080"
+#  end
+  it "should create a rdf/xml" do
+#    subject.titleValue = "Sample Complex Object Record #1"
+#    subject.subtitle = "a newspaper PDF with a single attached image"
+#    subject.titleVariant = "The Whale"
+#    subject.titleTranslationVariant = "Translation Variant"
+#    subject.titleAbbreviationVariant = "Abbreviation Variant"
+#    subject.titleAcronymVariant = "Acronym Variant"
+#    subject.titleExpansionVariant = "Expansion Variant"
+#    subject.dateValue = "May 24, 1980"
+#    subject.beginDate = "1980-05-24"
+#    subject.endDate = "1980-05-24"
+#    subject.subjectValue = ["Black Panther Party--History"]
+#    subject.subjectURI = ["bd6724414c"]
+#    subject.topic.build.name = "test subject"
+#    subject.languageURI = ["xx00000170"]
+#    subject.assembledCollectionURI = ["bb03030303"]
+#    subject.provenanceCollectionURI = ["bb24242424"]
+#    subject.relationshipRoleURI = ["bd8396905c"]
+#    subject.relationshipNameType = ["CorporateName"]
+#    subject.relationshipNameURI = ["bd8294487v"]      
+#    subject.nameType = ["PersonalName"]
+#    subject.nameURI = ["xx11111111"]
+#    subject.nameTypeValue = ["inline personal name"]
+#    subject.copyrightURI = ["bb05050505"]
+#    subject.statuteURI = ["bb21212121"]
+#    subject.otherRightsURI = ["bb06060606"]
+#    subject.licenseURI = ["bb22222222"]
+#    subject.rightsHolderURI = ["bb09090909"]
 	bn_id = subject.title[0].hasVariant[0].rdf_subject.id
     bn_id_trans = subject.title[0].hasTranslationVariant[0].rdf_subject.id
     bn_id_abb = subject.title[0].hasAbbreviationVariant[0].rdf_subject.id
     bn_id_acro = subject.title[0].hasAcronymVariant[0].rdf_subject.id
     bn_id_exp = subject.title[0].hasExpansionVariant[0].rdf_subject.id
+
     xml =<<END
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:dams="http://library.ucsd.edu/ontology/dams#"
