@@ -71,8 +71,11 @@ module Dams
       accepts_nested_attributes_for :title, :date, :relationship, :language, 
       								:note, :custodialResponsibilityNote, :preferredCitationNote, :scopeContentNote, 
       								:complexSubject, :builtWorkPlace, :culturalContext, :function, :genreForm, :geographic, 
-      								:iconography, :occupation, :scientificName, :stylePeriod, :technique, :temporal, :topic
-	    
+      								:iconography, :occupation, :scientificName, :stylePeriod, :technique, :temporal, :topic,
+	    							:name, :conferenceName, :corporateName, :familyName, :personalName, :relatedResource,
+	    							:unit, :assembledCollection, :provenanceCollection, :provenanceCollectionPart, :component, :file,
+	    							:copyright, :license, :otherRights, :statute, :rightsHolderCorporate, :rightsHolderPersonal,
+	    							:cartographics 	    	    
 	  def serialize
 	    graph.insert([rdf_subject, RDF.type, DAMS.Object]) if new?
 		if(!@unitURI.nil?)
